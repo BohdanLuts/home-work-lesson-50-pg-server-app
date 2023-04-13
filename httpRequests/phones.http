@@ -1,0 +1,3 @@
+GET http://localhost:5000/api/phones?page=1 HTTP/1.1
+
+GET http://localhost:5000/api/phones/1 HTTP/1.1

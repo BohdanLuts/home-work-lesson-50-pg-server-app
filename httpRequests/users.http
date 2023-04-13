@@ -1,0 +1,67 @@
+### Creating valid user - 201 newUser
+
+POST http://localhost:5000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Test",
+    "lastName":"Testovych",
+    "email":"test@gmail.com",
+    "tel": "+380199999996"
+}
+
+### Creating invalid user with ununique tel - 500 
+
+POST http://localhost:5000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Test",
+    "lastName":"Testovych",
+    "email":"test@gmail.com",
+    "tel": "+380199999997"
+}
+
+### Creating invalid user with invalid name - 500 
+
+POST http://localhost:5000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Testo",
+    "lastName":"Testovych",
+    "email":"test@gmail.com",
+    "tel": "+380199999997"
+}
+
+### Deleting existisg user - 204
+
+DELETE  http://localhost:5000/api/users/20 HTTP/1.1
+
+### Deleting unexistisg user - 404
+
+DELETE  http://localhost:5000/api/users/5 HTTP/1.1
+
+### Deleting existisg user, witch exists in orders - 500
+
+DELETE  http://localhost:5000/api/users/1 HTTP/1.1
+
+### Get all users - 200
+
+GET http://localhost:5000/api/users?page=1&results=10 HTTP/1.1
+
+### Get all users without results - 200
+
+GET http://localhost:5000/api/users?page=1 HTTP/1.1
+
+
+PATCH http://localhost:5000/api/users/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "AnotherTest",
+    "lastName":"Testovych",
+    "email":"test@gmail.com",
+    "tel": "+380199999997"
+}
+
