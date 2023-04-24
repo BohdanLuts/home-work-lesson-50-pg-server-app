@@ -9,7 +9,7 @@ class Phone {
      LIMIT ${limit} OFFSET ${offset};
    `;
     try {
-      const foundPhones = await Phones.pool.query(selectQuery);
+      const foundPhones = await Phone.pool.query(selectQuery);
       return foundPhones.rows;
     } catch (err) {
       throw new Error(err.detail);
