@@ -24,12 +24,18 @@ module.exports.getUsers = async (req, res, next) => {
 
 module.exports.updateUser = async (req, res, next) => {
   const {
-    body,
+    body: { firstName, lastName, email, tel },
     params: { userId },
   } = req;
 
   try {
-    const updateUser = await User.updateById(body, userId);
+    const updateUser = await User.updateById({
+      firstName,
+      lastName,
+      email,
+      tel,
+      id: userId,
+    });
     if (updateUser) {
       return res.status(200).send(updateUser);
     }

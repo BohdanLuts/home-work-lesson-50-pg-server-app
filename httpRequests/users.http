@@ -59,9 +59,9 @@ PATCH http://localhost:5000/api/users/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "AnotherTest",
+    "firstName": "Another1",
     "lastName":"Testovych",
     "email":"test@gmail.com",
-    "tel": "+380199999997"
+    "tel": "+380199999907"
 }
 
